@@ -1,22 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * LibraryManager.java
- * Handles core business logic and in-memory CRUD operations using Java Collections.
- */
 public class LibraryManager {
-    // In-memory data store using an ArrayList collection
+    // data store 
     private final List<Book> books;
 
     public LibraryManager() {
         this.books = new ArrayList<>();
     }
 
-    /**
-     * CREATE: Adds a new book to the library inventory.
-     * Validates that duplicate ISBNs are not allowed.
-     */
+  
+      // CREATE
+    
     public boolean addBook(Book newBook) {
         if (findBookByIsbn(newBook.getIsbn()) != null) {
             System.out.println("Error: A book with ISBN " + newBook.getIsbn() + " already exists.");
@@ -27,9 +22,9 @@ public class LibraryManager {
         return true;
     }
 
-    /**
-     * READ: Displays all books currently in the collection.
-     */
+  
+     // READ
+    
     public void listAllBooks() {
         if (books.isEmpty()) {
             System.out.println("No books available in the inventory.");
@@ -42,9 +37,7 @@ public class LibraryManager {
         System.out.println("Total Books: " + books.size() + "\n");
     }
 
-    /**
-     * Helper Method: Finds a book by its unique ISBN.
-     */
+   
     public Book findBookByIsbn(String isbn) {
         for (Book book : books) {
             if (book.getIsbn().equalsIgnoreCase(isbn.trim())) {
@@ -54,9 +47,7 @@ public class LibraryManager {
         return null;
     }
 
-    /**
-     * UPDATE: Updates existing book details by ISBN.
-     */
+      // UPDATE
     public boolean updateBook(String isbn, String newTitle, String newAuthor, int newYear) {
         Book existingBook = findBookByIsbn(isbn);
         if (existingBook == null) {
@@ -64,7 +55,7 @@ public class LibraryManager {
             return false;
         }
 
-        // Update fields if non-empty values are provided
+    
         if (!newTitle.trim().isEmpty()) {
             existingBook.setTitle(newTitle);
         }
@@ -79,9 +70,9 @@ public class LibraryManager {
         return true;
     }
 
-    /**
-     * DELETE: Removes a book from the inventory by ISBN.
-     */
+
+      // DELETE
+
     public boolean deleteBook(String isbn) {
         Book bookToDelete = findBookByIsbn(isbn);
         if (bookToDelete == null) {
