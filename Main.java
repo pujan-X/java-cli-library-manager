@@ -1,9 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Main.java
- * Menu-driven command-line interface with exception handling and input validation.
- */
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final LibraryManager library = new LibraryManager();
@@ -106,9 +102,6 @@ public class Main {
         library.deleteBook(isbn);
     }
 
-    /**
-     * Helper to read integer inputs safely, preventing crashes on invalid input strings.
-     */
     private static int readIntegerInput(String prompt) {
         while (true) {
             if (!prompt.isEmpty()) {
