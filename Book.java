@@ -1,14 +1,10 @@
-/**
- * Book.java
- * Entity model representing a book in the library system.
- */
 public class Book {
     private String isbn;
     private String title;
     private String author;
     private int publicationYear;
 
-    // Constructor to initialize all properties
+    // Constructor
     public Book(String isbn, String title, String author, int publicationYear) {
         this.isbn = isbn;
         this.title = title;
@@ -49,7 +45,7 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
-    // Overriding toString for clean tabular / readable terminal display
+    // Overriding toString
     @Override
     public String toString() {
         return String.format("ISBN: %-13s | Title: %-25s | Author: %-20s | Year: %d",
